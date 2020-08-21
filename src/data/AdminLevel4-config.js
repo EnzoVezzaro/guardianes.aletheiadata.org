@@ -52,22 +52,19 @@ const config = {
                 112
               ],
               "colorRange": {
-                "name": "Uber Viz Diverging 3.5",
+                "name": "Uber Viz Diverging 2.5",
                 "type": "diverging",
                 "category": "Uber",
                 "colors": [
-                  "#C22E00",
-                  "#D0532B",
-                  "#DD7755",
-                  "#EB9C80",
-                  "#F8C0AA",
+                  "#00939C",
+                  "#3EADB3",
+                  "#7CC7CB",
                   "#BAE1E2",
-                  "#8CCED1",
-                  "#5DBABF",
-                  "#2FA7AE",
-                  "#00939C"
-                ],
-                "reversed": true
+                  "#F8C0AA",
+                  "#E68F71",
+                  "#D45F39",
+                  "#C22E00"
+                ]
               },
               "strokeColorRange": {
                 "name": "Global Warming",
@@ -122,10 +119,10 @@ const config = {
           },
           "visualChannels": {
             "colorField": {
-              "name": "TOT_VOTANTES",
+              "name": "TOT_DIPUTADOS",
               "type": "integer"
             },
-            "colorScale": "quantile",
+            "colorScale": "quantize",
             "sizeField": null,
             "sizeScale": "linear",
             "strokeColorField": null,
@@ -140,7 +137,7 @@ const config = {
       "interactionConfig": {
         "tooltip": {
           "fieldsToShow": {
-            "08hch1cog": [
+            "gcp51sv4b": [
               {
                 "name": "Name",
                 "format": null
@@ -150,15 +147,7 @@ const config = {
                 "format": null
               },
               {
-                "name": "FID",
-                "format": null
-              },
-              {
-                "name": "ADM0_EN",
-                "format": null
-              },
-              {
-                "name": "ADM0_ES",
+                "name": "TOT_DIPUTADOS",
                 "format": null
               }
             ]
@@ -188,14 +177,14 @@ const config = {
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 18.712860437113278,
-      "longitude": -70.08640168681704,
+      "latitude": 18.989153185382406,
+      "longitude": -69.99765202242254,
       "pitch": 0,
-      "zoom": 7.321495355615637,
+      "zoom": 7.277660197641888,
       "isSplit": false
     },
     "mapStyle": {
-      "styleType": "light",
+      "styleType": "dark",
       "topLayerGroups": {},
       "visibleLayerGroups": {
         "label": true,
@@ -207,9 +196,9 @@ const config = {
         "3d building": false
       },
       "threeDBuildingColor": [
-        218.82023004728686,
-        223.47597962276103,
-        223.47597962276103
+        9.665468314072013,
+        17.18305478057247,
+        31.1442867897876
       ],
       "mapStyles": {}
     }

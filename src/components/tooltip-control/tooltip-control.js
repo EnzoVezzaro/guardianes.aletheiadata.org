@@ -495,28 +495,11 @@ class CustomTooltipControl extends React.Component {
                   className={'slider-more-profile'}
                   style={{ backgroundColor: '#fff', height: '100%', width: '100%' }}>
                     <div>
-                      <InfoPanel 
-                        data={this.state.currentSelection} 
-                        cabinet={this.getPresidencial()} 
-                        profiles={this.state.profiles} 
-                        totalPresidencial={this.state.totalPresidencial} 
-                        totalSenaduria={this.state.totalSenaduria} 
-                        totalDiputacion={this.state.totalDiputacion} 
-                        _toogleSlide={(e)=>this._toogleSlide(e)} />
-                    </div>
-                    <div>
                       <InfoPanelProfile 
                         data={this.state.currentSelection} 
                         profiles={this.state.profiles} 
                         totalSenaduria={this.state.totalSenaduria} 
                         totalDiputacion={this.state.totalDiputacion} 
-                        _toogleSlide={(e)=>this._toogleSlide(e)} />
-                    </div>
-                    <div>
-                      <InfoPanelPresidencial 
-                        totalPresidencial={this.state.totalPresidencial} 
-                        presidencial={this.getPresidencial()} 
-                        cabinet={this.getCabinet()} 
                         _toogleSlide={(e)=>this._toogleSlide(e)} />
                     </div>
                   </AwesomeSlider>

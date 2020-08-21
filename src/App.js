@@ -128,6 +128,11 @@ const GlobalStyle = styled.div`
     margin-top: 10px;
   }
 
+  .settings-panel-logo a{
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
   .settings-panel-logo img{
     width: 60px;
     z-index: 1;
@@ -326,6 +331,26 @@ class App extends Component {
       this.props.dispatch(loadSampleConfigurations(id));
     }
 
+    console.log(this.props);
+
+    /*
+    var accessCode = prompt("Enter Access Code");
+    if (accessCode === null) {
+        window.location = '/';
+        return; //break out of the function early
+    }
+    switch (accessCode) {
+      case 'Guardianes2020j.A':
+        alert('Login Successful!')
+        break;
+      default:
+        alert('Login Failed!');
+        window.location = '/'
+        break;
+    }
+    */
+
+
     // Load map using a custom
     if (query.mapUrl) {
       // TODO?: validate map url
@@ -400,7 +425,7 @@ class App extends Component {
 
   async _loadProvinces( ) {
 
-    await fetch('https://s3.amazonaws.com/map.aletheiadata.org/maps/provinces/provincies.json', {
+    await fetch('https://s3.amazonaws.com/guardianesdelademocracia.aletheiadata.org/maps/provinces/provincies.json', {
       mode: 'cors',
       cache: 'no-cache',
       headers: {
@@ -532,7 +557,9 @@ class App extends Component {
       "#5DBABF",
       "#2FA7AE",
       "#00939C"
-    ]
+    ];
+
+    colorsScale.reverse();
 
     //this.props.layerHoverProp.data[0].properties;
     let distritoNational = {
@@ -618,9 +645,9 @@ class App extends Component {
 
           <div className={'settings-panel'}>
             <div className={'settings-panel-logo'}>
-              <a href={'https://aletheiadata.org'} target="_blank">
-                <img src={'/assets/img/aletheiadata.svg'} /> 
-              </a>
+                <a href={'#'}>
+                  <img src={'/assets/img/images.jpeg'} /> 
+                </a>
             </div>
             <div className={'settings-panel-content'}></div>
             <div className={'settings-panel-footer'}>
@@ -633,7 +660,11 @@ class App extends Component {
               style={{ textAlign: 'center' }} 
               onHide={this._toggleSettings}>
               <Modal.Header>
-                <Modal.Title><img style={{ marginTop: '10px' }} src={'/assets/img/aletheiadata.svg'} /></Modal.Title>
+                <Modal.Title>
+                  <a href={'https://aletheiadata.org'} target="_blank">
+                    <img style={{ width: '150px', marginTop: '10px' }} src={'/assets/img/aletheiadata.png'} />
+                  </a>
+                </Modal.Title>
               </Modal.Header>
               <Modal.Body style={{ height: '100%', padding: 0 }} >
                 {/* <b>Contact Info:</b> <a href='mailto:aletheiadata@gmail.com'>aletheiadata@gmail.com</a> */}
@@ -645,7 +676,7 @@ class App extends Component {
             </Modal>
           </div>
           <div className={'settings-scale'}>
-            <span>Densidad de Votos Emitidos</span>
+            <span>Densidad de Diputados por Provincia</span>
             <div className={'settings-panel-scale-container'}>
               <span>-</span>
               {

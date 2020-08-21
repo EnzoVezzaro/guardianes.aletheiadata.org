@@ -5,7 +5,7 @@ import { Tooltip, Whisper } from 'rsuite';
 
 import { getProfileImg } from '../../utils/profile-imgs';
 
-import { Progress } from 'rsuite';
+import { Progress, Badge } from 'rsuite';
 
 import ProgressBar from 'react-animated-progress-bar';
 
@@ -52,7 +52,7 @@ const StyledInfoPanel = styled.div`
   }
 
   .info-member-container h2, .info-bars-container h2{
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     color: #000;
   }
 
@@ -121,6 +121,19 @@ const StyledInfoPanel = styled.div`
   .progress_bar_dip.DIPUTADO{
     margin: 10px 0;
   }
+
+  .title-depities{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title-depities span{
+      top: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #297479;
+  }
   
 `;
 
@@ -129,10 +142,7 @@ const _bodyText = ((title,desc,type,func)=>{
         return (
             <div className={'info-text-container'}>
                 <div style={{ display: 'flex', alignItems: 'center'}}>
-                    <div className={'info-member-img back'} key={`info_member_more`} onClick={()=>func(0)}>
-                        <img src={'/assets/img/camera-back.svg'} style={{ width: '41px' }} alt="more"></img>
-                    </div>
-                    <h2 style={{marginLeft:20}}>{title}</h2>
+                    <h2 style={{marginLeft:0}}>{title}</h2>
                 </div>
                 <p>{desc}</p>
             </div>
@@ -250,12 +260,12 @@ const InfoPanelProfile = ({
   bgColor = '#fff',
   fontColor = '#999',
   height = '100%',
+  data,
   profiles,
   totalSenaduria,
   totalDiputacion,
   _toogleSlide
 }) => {
-    //console.log(totalSenaduria);
 
     let SEARCH_TERM = 'SENADOR';
     const senadors = profiles.filter(function (str) { if (str._source && str._source.CARGO == SEARCH_TERM ) return str });
@@ -266,6 +276,8 @@ const InfoPanelProfile = ({
         //console.log(a);
         return parseInt(b._source.VOTOS) - parseInt(a._source.VOTOS);
     });
+
+    //console.log(data.ADM2_ES);
     
     return(
         <StyledInfoPanel
@@ -277,7 +289,8 @@ const InfoPanelProfile = ({
             <div className={'content-container'}>
                 
                 <div className={'info-member-container'}>
-                    { _bodyText('Congreso', `El Congreso obtuvo un total de ${new Intl.NumberFormat('es-ES').format(totalSenaduria._VALIDOS)} votos validos.`,'intro',_toogleSlide) }
+                    { _bodyText(data.ADM2_ES, `La ${data.ADM2_ES} obtuvo un total de ${new Intl.NumberFormat('es-ES').format(totalDiputacion._INSCRITOS)} inscritos.`) }
+                    
                     <div className={'info-member-imgs'}>
                         {
                             profiles.map((member, i) => {
@@ -310,7 +323,11 @@ const InfoPanelProfile = ({
                     {
                         deputies &&
                         <div className={'info-bars deputies'}>
-                            <br></br><h3>Diputados</h3>
+                            <br></br>
+                            <div className={'title-depities'}>
+                                <h3>Diputados</h3>
+                                <span>{deputies.length}</span>
+                            </div>
                             {
                                 deputies.map((profile, i) => {
                                     //console.log(i);

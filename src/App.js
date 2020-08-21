@@ -333,7 +333,6 @@ class App extends Component {
 
     console.log(this.props);
 
-    /*
     var accessCode = prompt("Enter Access Code");
     if (accessCode === null) {
         window.location = '/';
@@ -348,7 +347,7 @@ class App extends Component {
         window.location = '/'
         break;
     }
-    */
+    
 
 
     // Load map using a custom

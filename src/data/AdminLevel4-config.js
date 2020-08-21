@@ -52,18 +52,21 @@ const config = {
                 112
               ],
               "colorRange": {
-                "name": "Uber Viz Diverging 2.5",
-                "type": "diverging",
-                "category": "Uber",
+                "name": "Custom Palette",
+                "type": "custom",
+                "category": "Custom",
                 "colors": [
                   "#00939C",
-                  "#3EADB3",
-                  "#7CC7CB",
-                  "#BAE1E2",
+                  "#49A6AE",
+                  "#FEEEE8",
                   "#F8C0AA",
-                  "#E68F71",
-                  "#D45F39",
-                  "#C22E00"
+                  "#F2A587",
+                  "#E68059",
+                  "#D55A2B",
+                  "#C22E00",
+                  "#a52902",
+                  "#942401",
+                  "#791e01"
                 ]
               },
               "strokeColorRange": {
@@ -137,7 +140,7 @@ const config = {
       "interactionConfig": {
         "tooltip": {
           "fieldsToShow": {
-            "gcp51sv4b": [
+            "wwigqjhh5": [
               {
                 "name": "Name",
                 "format": null
@@ -177,10 +180,10 @@ const config = {
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 18.989153185382406,
-      "longitude": -69.99765202242254,
+      "latitude": 18.80028801478479,
+      "longitude": -70.51878778036294,
       "pitch": 0,
-      "zoom": 7.277660197641888,
+      "zoom": 7.5852115750542275,
       "isSplit": false
     },
     "mapStyle": {

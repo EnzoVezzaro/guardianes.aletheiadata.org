@@ -310,29 +310,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // if we pass an id as part of the url
-    // we ry to fetch along map configurations
-    const {params: {id, provider} = {}, location: {query = {}} = {}} = this.props;
-
-    const cloudProvider = CLOUD_PROVIDERS.find(c => c.name === provider);
-    if (cloudProvider) {
-      this.props.dispatch(
-        loadCloudMap({
-          loadParams: query,
-          provider: cloudProvider,
-          onSuccess: onLoadCloudMapSuccess
-        })
-      );
-      return;
-    }
-
-    // Load sample using its id
-    if (id) {
-      this.props.dispatch(loadSampleConfigurations(id));
-    }
-
     console.log(location.hostname);
-
     if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1"){
       var accessCode = prompt("Enter Access Code");
       if (accessCode === null) {
@@ -354,8 +332,26 @@ class App extends Component {
       console.warn = function() {}
       console.debug = function() {}
     }
+    // if we pass an id as part of the url
+    // we ry to fetch along map configurations
+    const {params: {id, provider} = {}, location: {query = {}} = {}} = this.props;
 
+    const cloudProvider = CLOUD_PROVIDERS.find(c => c.name === provider);
+    if (cloudProvider) {
+      this.props.dispatch(
+        loadCloudMap({
+          loadParams: query,
+          provider: cloudProvider,
+          onSuccess: onLoadCloudMapSuccess
+        })
+      );
+      return;
+    }
 
+    // Load sample using its id
+    if (id) {
+      this.props.dispatch(loadSampleConfigurations(id));
+    }
 
     // Load map using a custom
     if (query.mapUrl) {
@@ -680,7 +676,7 @@ class App extends Component {
                 <ContactForm />
               </Modal.Body>
               <Modal.Footer>
-                <span>v0.0.3</span>
+                <span>v0.0.4</span>
               </Modal.Footer>
             </Modal>
           </div>

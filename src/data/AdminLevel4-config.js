@@ -57,16 +57,16 @@ const config = {
                 "category": "Custom",
                 "colors": [
                   "#00939C",
+                  "#00939C",
+                  "#00939C",
+                  "#00939C",
                   "#49A6AE",
+                  "#71BABF",
+                  "#97CED1",
+                  "#BAE1E2",
                   "#FEEEE8",
-                  "#F8C0AA",
-                  "#F2A587",
-                  "#E68059",
                   "#D55A2B",
-                  "#C22E00",
-                  "#a52902",
-                  "#942401",
-                  "#791e01"
+                  "#C22E00"
                 ]
               },
               "strokeColorRange": {
@@ -125,7 +125,7 @@ const config = {
               "name": "TOT_DIPUTADOS",
               "type": "integer"
             },
-            "colorScale": "quantize",
+            "colorScale": "quantile",
             "sizeField": null,
             "sizeScale": "linear",
             "strokeColorField": null,
@@ -140,7 +140,7 @@ const config = {
       "interactionConfig": {
         "tooltip": {
           "fieldsToShow": {
-            "wwigqjhh5": [
+            "2naopesjl": [
               {
                 "name": "Name",
                 "format": null
@@ -180,10 +180,10 @@ const config = {
     "mapState": {
       "bearing": 0,
       "dragRotate": false,
-      "latitude": 18.80028801478479,
-      "longitude": -70.51878778036294,
+      "latitude": 18.77103381216516,
+      "longitude": -70.65224461797156,
       "pitch": 0,
-      "zoom": 7.5852115750542275,
+      "zoom": 7.659629710305383,
       "isSplit": false
     },
     "mapStyle": {

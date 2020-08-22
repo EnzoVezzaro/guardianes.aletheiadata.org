@@ -25,7 +25,7 @@ import window from 'global/window';
 import {connect} from 'react-redux';
 import {theme} from 'kepler.gl/styles';
 import Banner from './components/banner';
-import { Modal, Divider } from 'rsuite';
+import { Modal, Divider, Whisper, Tooltip } from 'rsuite';
 import CustomTooltipControl from './components/tooltip-control/tooltip-control';
 import { Steps, Hints } from "intro.js-react";
 import "intro.js/introjs.css";
@@ -331,23 +331,30 @@ class App extends Component {
       this.props.dispatch(loadSampleConfigurations(id));
     }
 
-    console.log(this.props);
+    console.log(location.hostname);
 
-    var accessCode = prompt("Enter Access Code");
-    if (accessCode === null) {
-        window.location = '/';
-        return; //break out of the function early
+    if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1"){
+      var accessCode = prompt("Enter Access Code");
+      if (accessCode === null) {
+          window.location = '/';
+          return; //break out of the function early
+      }
+      switch (accessCode) {
+        case 'Guardianes2020j.A':
+          alert('Login Successful!')
+          break;
+        default:
+          alert('Login Failed!');
+          window.location = '/'
+          break;
+      } 
+      
+      // disabled console.log
+      console.log = function() {}
+      console.warn = function() {}
+      console.debug = function() {}
     }
-    switch (accessCode) {
-      case 'Guardianes2020j.A':
-        alert('Login Successful!')
-        break;
-      default:
-        alert('Login Failed!');
-        window.location = '/'
-        break;
-    }
-    
+
 
 
     // Load map using a custom
@@ -546,19 +553,22 @@ class App extends Component {
     }
 
     let colorsScale = [
-      "#C22E00",
-      "#D0532B",
-      "#DD7755",
-      "#EB9C80",
-      "#F8C0AA",
+      "#00939C",
+      "#97CED1",
       "#BAE1E2",
-      "#8CCED1",
-      "#5DBABF",
-      "#2FA7AE",
-      "#00939C"
+      "#FEEEE8",
+      "#D55A2B",
+      "#C22E00"
     ];
 
-    colorsScale.reverse();
+    let labelsScale = [
+      "1-2",
+      "3",
+      "4",
+      "5",
+      "6-15",
+      "15+"
+    ];
 
     //this.props.layerHoverProp.data[0].properties;
     let distritoNational = {
@@ -679,10 +689,25 @@ class App extends Component {
             <div className={'settings-panel-scale-container'}>
               <span>-</span>
               {
-                colorsScale.map(color => {
-                  return (
-                    <div style={{ backgroundColor: color }} className={'settings-panel-scale'}></div>
-                  )
+                colorsScale.map((color, i) => {
+                  return labelsScale.map((label, e)=>{
+                    if (e == i){
+                      return (
+                        <Whisper
+                            trigger="hover"
+                            placement={'top'}
+                            key={`key_label_${i}`}
+                            speaker={
+                            <Tooltip>
+                                { `${label} Diputados` }
+                            </Tooltip>
+                            }
+                        >
+                            <div style={{ backgroundColor: color }} className={'settings-panel-scale'}></div>
+                        </Whisper>
+                      )
+                    }
+                  })
                 })
               }
               <span>+</span>
@@ -702,7 +727,7 @@ class App extends Component {
             justifyContent: 'center',
             alignItems: 'center'
           }}>
-            <div class="loader">Loading...</div>
+            <div className="loader">Loading...</div>
           </div>
           <div
               style={{

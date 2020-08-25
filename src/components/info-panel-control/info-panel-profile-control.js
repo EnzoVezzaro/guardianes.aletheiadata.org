@@ -48,7 +48,7 @@ const StyledInfoPanel = styled.div`
   }
 
   .info-bars-container{
-    margin: 20px 0;
+    /*margin: 20px 0;*/
   }
 
   .info-member-container h2, .info-bars-container h2{
@@ -328,9 +328,8 @@ const InfoPanelProfile = ({
                 
                 <div className={'info-member-container'}>
                     { _bodyText(data.ADM2_ES, `La ${data.ADM2_ES} obtuvo un total de ${new Intl.NumberFormat('es-ES').format(totalDiputacion._INSCRITOS)} inscritos.`) }
-                    
-                    <div className={'info-member-imgs'}>
-                        {
+                        {/*
+                        <div className={'info-member-imgs'}>
                             profiles.map((member, i) => {
                                 //console.log(i);
                                 if(i < 3){
@@ -341,8 +340,8 @@ const InfoPanelProfile = ({
                                     return null
                                 }
                             })
-                        }
-                    </div>
+                        </div>
+                        */}
                 </div>
 
                 <div className={'info-bars-container'}>

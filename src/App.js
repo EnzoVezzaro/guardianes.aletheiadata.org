@@ -622,7 +622,7 @@ class App extends Component {
           <div className="map-prov" style={{ width: '100%', height: '100%', position: 'absolute', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <img className="map-prov-img" style={{ width: 137, position: 'relative', left: '-87px', top: '-86px'}} src={'/assets/img/mapPreview.png'}></img>
           </div>
-          <div className="layer-prov" style={{ backgroundImage: `url('/assets/img/previewSide.png')`, backgroundSize: 'cover', zIndex: 0, height: '80%', position: 'absolute', right: '10px', top: '10px', width: '290px' }}></div>
+          <div className="layer-prov" style={{ backgroundImage: `url('/assets/img/previewSide.png')`, backgroundSize: '100%', zIndex: 0, height: '80%', position: 'absolute', right: '10px', top: '10px', width: '290px' }}></div>
           {
             showSidepanel &&
             <CustomTooltipControl layerHoverProp={distritoNational} frozen={showSidepanel} /> 
@@ -676,7 +676,7 @@ class App extends Component {
                 <ContactForm />
               </Modal.Body>
               <Modal.Footer>
-                <span>v0.0.4</span>
+                <span>v0.0.5</span>
               </Modal.Footer>
             </Modal>
           </div>

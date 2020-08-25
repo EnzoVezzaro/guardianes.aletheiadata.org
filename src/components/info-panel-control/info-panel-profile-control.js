@@ -122,6 +122,14 @@ const StyledInfoPanel = styled.div`
     margin: 10px 0;
   }
 
+  .progress_bar_dip.DIPUTADO div:first-child{
+    width: 60%;
+  }
+
+  .progress_bar_dip.DIPUTADO span:not:first-child{
+    width: 20%;
+  }
+
   .title-depities{
     display: flex;
     justify-content: space-between;
@@ -221,7 +229,37 @@ const _progressBar = ((data, total)=>{
     
     return (
         <div className={`progress_bar_dip ${profile.CARGO}`} key={`progress_bar_${profile.NOMBRE_COMPLETO}`}>
-            <span>{ profile.NOMBRE_COMPLETO }</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span>{ profile.NOMBRE_COMPLETO }</span>
+                {
+                profile.CARGO == "SENADOR" &&
+                    <Whisper
+                        trigger="hover"
+                        placement={'top'}
+                        speaker={
+                        <Tooltip>
+                            { profile.PARTIDO_CANDIDATURA }
+                        </Tooltip>
+                        }
+                    >
+                        <span className={'deputy'} style={{ textAlign: 'right', fontWeight: 'bold', color: '#297479' }}>{ profile.PARTIDO_CANDIDATO }</span>
+                    </Whisper>
+                }
+            </div>
+            {
+                profile.CARGO == "DIPUTADO" &&
+                    <Whisper
+                        trigger="hover"
+                        placement={'top'}
+                        speaker={
+                        <Tooltip>
+                            { profile.PARTIDO_CANDIDATURA }
+                        </Tooltip>
+                        }
+                    >
+                        <span className={'deputy'} style={{ textAlign: 'center', fontWeight: 'bold', color: '#297479' }}>{ profile.PARTIDO_CANDIDATO }</span>
+                    </Whisper>
+            }
             {
                 profile.CARGO == "SENADOR" &&
                 <Whisper

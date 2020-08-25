@@ -192,10 +192,10 @@ const config = {
       "visibleLayerGroups": {
         "label": true,
         "road": true,
-        "border": false,
-        "building": true,
+        "border": true,
+        "building": false,
         "water": true,
-        "land": true,
+        "land": false,
         "3d building": false
       },
       "threeDBuildingColor": [

@@ -1,6 +1,4 @@
-# Demo App 
-
-This is the src code of kepler.gl demo app. You can copy this folder out and run it locally.
+# GUARDIANES App 
 
 #### 1. Install
 
